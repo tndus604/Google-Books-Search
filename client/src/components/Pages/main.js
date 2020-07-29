@@ -16,7 +16,7 @@ class Main extends Component {
         API.getBooks()
             .then (res => {
                 this.setState({ books: res.data });
-                console.log('books:', this.statebooks)
+                console.log('books:', this.state.books)
             })
             .catch(err => {
                 throw err
@@ -90,12 +90,12 @@ class Main extends Component {
                     <SearchForm
                     handleFormSubmit = {this.handleFormSubmit}
                     handleInputChange = {this.handleInputChange} />
-                    <div className="container-fluid" id="main-content">
+                    <div className="container" id="main-content">
                         {this.state.results.map((book) => {
                             return (
                                 <Card
-                                key = {book.id}
-                                title = {book.volumeInfo.title}
+                                key={book.id}
+                                title={book.volumeInfo.title}
                                 id={book.id}
                                 link={book.volumeInfo.infoLink}
                                 author={book.volumeInfo.authors}
